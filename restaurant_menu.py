@@ -92,12 +92,13 @@ while condition3 :
     input_value2=inputfunc()    
     
     if input_value2 == 1 :
-        menu_list=["veg_starters:","nonveg_starters:","veg_biryani:","nonveg_biryani:"]
+        menu_list=["veg_starters:","nonveg_starters:","veg_biryanis:","nonveg_biryanis:"]
         for i in range(4) :
             print(menu_list[i])
+            print("")
             for key in rest_obj.menu[i] :
                 print(key,"------  ₹",rest_obj.menu[i][key])
-            
+            print("")
             
     elif input_value2 == 2 :
         rest_obj.add_items()
