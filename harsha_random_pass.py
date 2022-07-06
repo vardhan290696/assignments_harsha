@@ -5,7 +5,8 @@ str2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 str3 = "!@#$%^&*()"
 str4 = "0123456789"
 complete_list=list(str1+str2+str3+str4)
-x=True
+
+
 def random_passowrd_generator():
     try :
         required_length_of_pass = int(input("enter the required length of password"))
@@ -16,8 +17,7 @@ def random_passowrd_generator():
         print("".join(randompassword))
     except:
         print("enter valid input")
-        global x
-        x= False
+        random_passowrd_generator()
+
     
-while x :
-    random_passowrd_generator()
+random_passowrd_generator()
