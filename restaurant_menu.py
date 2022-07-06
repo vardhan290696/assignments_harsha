@@ -19,9 +19,18 @@ class RestaurantMenu :
         inputfunc2()
             
         self.item_name = input("enter the name of item to be added :")
-        self.item_price = int(input("enter the price of item  :"))
         
-        self.menu[self.input_value-1][self.item_name]=self.item_price
+        
+        def pricefunc() :
+            try :
+                self.item_price = int(input("enter the price of item  :"))
+                assert self.item_price > 0 
+            except :
+                print("enter the valid amount")
+                pricefunc()
+            return self.item_price
+        
+        self.menu[self.input_value-1][self.item_name]=pricefunc()
 
         
     def remove_items(self) :
@@ -41,13 +50,21 @@ class RestaurantMenu :
     
         self.conditon2 =True
         self.item_name = input("enter the name of item to be modified :")
-        self.item_price = int(input("enter the price of item  :"))
+        
+        def pricefunc() :
+            try :
+                self.item_price = int(input("enter the price of item  :"))
+                assert self.item_price > 0 
+            except :
+                print("enter the valid amount")
+                pricefunc()
+            return self.item_price
         
         for i in self.menu :
             
             if self.item_name in i.keys() :
                 self.conditon2 = False
-                i[self.item_name]=self.item_price 
+                i[self.item_name]= pricefunc()
                 break
             
         if self.conditon2 :
@@ -63,7 +80,6 @@ while condition3 :
     print("\n enter 1 to view menu card \n enter 2 to add items \n enter 3 to remove items \n enter 4 to update price of existing item \n enter 5 to exit ")
     
     def inputfunc() :
-        global input_value2
         try :
             input_value2 =int(input())
             assert 0 < input_value2 < 6 
@@ -71,15 +87,16 @@ while condition3 :
         except :
             print("enter valid input")
             inputfunc()
-    inputfunc()
-        
+        return input_value2
+    
+    input_value2=inputfunc()    
     
     if input_value2 == 1 :
         menu_list=["veg_starters:","nonveg_starters:","veg_biryani:","nonveg_biryani:"]
         for i in range(4) :
             print(menu_list[i])
             for key in rest_obj.menu[i] :
-                print(key,"------",rest_obj.menu[i][key])
+                print(key,"------  ₹",rest_obj.menu[i][key])
             
             
     elif input_value2 == 2 :
