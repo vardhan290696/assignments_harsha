@@ -97,7 +97,9 @@ while condition3 :
             print(menu_list[i])
             print("")
             for key in rest_obj.menu[i] :
-                print(key,"------  ₹",rest_obj.menu[i][key])
+                n= 20-len(key)
+                x="-"*n
+                print(key,x,"₹",rest_obj.menu[i][key])
             print("")
             
     elif input_value2 == 2 :
