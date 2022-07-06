@@ -28,12 +28,11 @@ class RestaurantMenu :
         self.item_name = input("enter the name of item to be removed :")
         self.condition1 = True
         for i in self.menu :
-            count=0
             if self.item_name in i.keys() :
                 self.condition1 = False
                 del i[self.item_name]
                 break
-            count += 1
+    
         if self.condition1 :
             print("item not found in menu to remove")
             
